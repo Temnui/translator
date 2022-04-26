@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/translate@1/translate.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="settings.js"></script>
+</head>
+<body>
+
+<form id="translate">
+    <label> English <br>
+        <input id="enText" type="text" size="30" value="Original text">
+        <input type="submit" value="Отправить">
+    </label>
+</form>
+
+<form id="output">
+    <label> Russian <br>
+        <input id="ruText" type="text" size="30" value="Тут будет результат">
+    </label>
+</form>
+
+</body>
+<script type="text/javascript">
+    translate.engine = "google";
+    translate.key = apiKey;
+
+    document.querySelector("#translate").addEventListener("submit", function(e) {
+        e.preventDefault();
+        onSubmit();
+    });
+
+    // $("#translate").submit(async e => {
+    //     e.preventDefault();
+    //     const text = document.querySelector('#enText').value
+    //     document.querySelector('#ruText').value = await getTranslation(text)
+    //     alert('message')
+    // });
+
+    async function onSubmit() {
+        const text = document.querySelector('#enText').value
+        document.querySelector('#ruText').value = await getTranslation(text)
+        alert('message')
+    }
+
+    async function getTranslation(originalText, originalLanguage, translationLanguage) {
+        // set default originalLanguage language to en, if other are not specify
+        if (!originalLanguage) {
+            originalLanguage = 'en'
+        }
+        // set default translationLanguage language to ru, if other are not specify
+        if (!translationLanguage) {
+            translationLanguage = 'ru'
+        }
+        return await translate(originalText, {from: originalLanguage, to: translationLanguage})
+    }
+</script>
+</html>

@@ -1,0 +1,106 @@
+"configFile": "https://roku.play.works/channels/games/monster_square/config.json",
+        //"configFile": "pkg:/config.json",
+        "logLevel": "error",
+        "payment": {
+            "enabled": false,
+            "mode": "PROD", //DEV or PROD
+            "adsFreeProductCodes": ["111"],
+            "APIKey": "8806B63127694247B699A540005E64B75642"
+        },
+        "storage": {
+            "remote": false,
+            "serverUrl": ""
+        },
+        "gameConfig": {
+            // "app_config":"https://h5-cdn.play.works/andrii/app.json",
+            "app_config": "pkg:/app.json"
+        },
+        "cheatEnabled": false,
+        "connectionCheckUrl": "https://roku.play.works/channels/connection_check/connection_check.json",
+        "ads": {
+            "enabled": true,
+            "debugEnabled": false,
+            "showTimeout": 180, // seconds
+            "rokuAdsUrlPercentage": 10, // 0 for undefined
+            "adVendors": {
+                "enabled": true,
+                "items": [{
+                    "name": "playworks",
+                    "enabled": true,
+                    "probability": 100,
+                    "adsUrls": [{
+                            "provider": "playworks",
+                            "url": "https://wfh.play.works/pw/ads_player/vast/pw.xml"
+                        },
+                        {
+                            "provider": "roku",
+                            "url": "https://wfh.play.works/pw/ads_player/vast/pw.xml"
+                        }
+                    ]
+                }]
+            },
+            "nielsen": {
+                "enabled": true,
+                "appId": "P2871BBFF-1A28-44AA-AF68-C7DE4B148C32",
+                "genre": "GV",
+                "programId": "MONSTER_SQUARE",
+                "contentLength": 1200
+            }
+        },
+        "promo": {
+            "enabled": true,
+            "apps": [{
+                    "name": "slotsxl",
+                    "id": "82749",
+                    "url": "https://s3.amazonaws.com/h5.play.works/roku/fw/bannerSlots.jpg"
+                },
+                {
+                    "name": "darts",
+                    "id": "129083",
+                    "url": "https://s3.amazonaws.com/h5.play.works/roku/fw/bannerDarts.jpg"
+                },
+                {
+                    "name": "bubblejam",
+                    "id": "136923",
+                    "url": "https://s3.amazonaws.com/h5.play.works/roku/fw/bannerBubbleJam.jpg"
+                },
+                {
+                    "name": "texttwist",
+                    "id": "137855",
+                    "url": "https://s3.amazonaws.com/h5.play.works/roku/fw/bannerTextTwist.jpg"
+                }
+            ]
+        },
+        "analytics": {
+            "enabled": true,
+            "inactivityTimeout": 60,
+            "google": {
+                "enabled": true,
+                "trackingId": "UA-43336621-16",
+                "samplingRate": 10,
+                "samplingEvents": {
+                    "ads": ["request", "request-to-play", "response", "impression", "completed"],
+                    "cross-promotion": ["watch-now", "launch"],
+                    "app": ["see-all"],
+                    "errors": ["video", "music", "loading", "local-storage", "system", "script-time-out", "text-file", "cookie"],
+                    "system": ["user-agent"]
+                },
+                "disabledEvents": {
+                    "ads": ["ads-count"],
+                    "app": ["loaded", "version", "type"],
+                    "system": ["version"],
+                    "geo": ["request-geo", "unknown-country", "request-ip", "responce-ip", "unknown-ip", "timeout"]
+                }
+            },
+            "game": {
+                "enabled": true,
+                "gameKey": "6cec7eeb698bbf3a2b8f829db6c5f1c1",
+                "secretKey": "22f59ed10c9e97c70b12ada963f9e333680b2872",
+                "queueMaxSize": 10,
+                "flushTimeout": 15
+            }
+        },
+        "sniffing": {
+            "enabled": true,
+            "url": "https://data.ad-score.com/img?pid=1000495&tt=lowcontent&tid=_Roku&l1=PlayWorks&l2=Roku&l3=DinoSquare&pub_app=Roku.PlayWorks.DinoSquare"
+        }
