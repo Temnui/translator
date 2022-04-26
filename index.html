@@ -25,24 +25,16 @@
 </body>
 <script type="text/javascript">
     translate.engine = "google";
-    translate.key = apiKey;
+    translate.key = apiKey; // key we get from settings.js
 
     document.querySelector("#translate").addEventListener("submit", function(e) {
         e.preventDefault();
         onSubmit();
     });
 
-    // $("#translate").submit(async e => {
-    //     e.preventDefault();
-    //     const text = document.querySelector('#enText').value
-    //     document.querySelector('#ruText').value = await getTranslation(text)
-    //     alert('message')
-    // });
-
     async function onSubmit() {
         const text = document.querySelector('#enText').value
         document.querySelector('#ruText').value = await getTranslation(text)
-        alert('message')
     }
 
     async function getTranslation(originalText, originalLanguage, translationLanguage) {
