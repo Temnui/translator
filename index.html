@@ -23,30 +23,8 @@
 </form>
 
 </body>
+<script src="app.js"></script>
 <script type="text/javascript">
-    translate.engine = "google";
-    translate.key = apiKey; // key we get from settings.js
 
-    document.querySelector("#translate").addEventListener("submit", function(e) {
-        e.preventDefault();
-        onSubmit();
-    });
-
-    async function onSubmit() {
-        const text = document.querySelector('#enText').value
-        document.querySelector('#ruText').value = await getTranslation(text)
-    }
-
-    async function getTranslation(originalText, originalLanguage, translationLanguage) {
-        // set default originalLanguage language to en, if other are not specify
-        if (!originalLanguage) {
-            originalLanguage = 'en'
-        }
-        // set default translationLanguage language to ru, if other are not specify
-        if (!translationLanguage) {
-            translationLanguage = 'ru'
-        }
-        return await translate(originalText, {from: originalLanguage, to: translationLanguage})
-    }
 </script>
 </html>
